@@ -1,113 +1,73 @@
-import Image from 'next/image'
+import SRPCard from "../components/SRPCard";
+import styles from "./home.module.scss";
 
 export default function Home() {
+  const vehicles = [
+    {
+      id: 1,
+      title: "2021 Jeep Wrangled",
+      price: Math.floor(Math.random() * 80000) + 1,
+      image:
+        "https://storage.googleapis.com/wackk-images-development/NonkAxHcPpTAggr1NpczmdVx",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
+
+      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
+    },
+    {
+      id: 2,
+      title: "2023 Dodge Challenged",
+      price: Math.floor(Math.random() * 80000) + 1,
+      image:
+        "https://storage.googleapis.com/wackk-images-development/ALG88Z8zTEwt2vYkWiLJTPkN",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
+
+      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
+    },
+    {
+      id: 3,
+      title: "2004 Ford Out-Of-Focus",
+      price: Math.floor(Math.random() * 80000) + 1,
+      image: "https://pbs.twimg.com/media/EdC32clXoAAvhh9.jpg",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
+
+      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
+    },
+    {
+      id: 4,
+      title: "2023 Nissan Pathfinder",
+      price: Math.floor(Math.random() * 80000) + 1,
+      image:
+        "https://storage.googleapis.com/wackk-images-development/pFXDQzJRGYRNvnKwpoG14Phb",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
+
+      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
+    },
+    {
+      id: 5,
+      title: "2021 Toyota Camry",
+      price: Math.floor(Math.random() * 80000) + 1,
+      image:
+        "https://storage.googleapis.com/wackk-images-development/5JDZYGKUBHUpgpA1PbhvUfMV",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
+
+      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
+    },
+    {
+      id: 6,
+      title: "2007 Toyota Camry",
+      price: Math.floor(Math.random() * 80000) + 1,
+      image:
+        "https://storage.googleapis.com/wackk-images-development/CDw9uXUxRLZYPawZW3vbr3rM",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
+
+      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
+    },
+  ];
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    <div className={styles.main}>
+      {vehicles.map((vehicle) => (
+        <SRPCard key={vehicle.id} vehicle={vehicle} />
+      ))}
+    </div>
+  );
 }
