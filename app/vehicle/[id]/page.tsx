@@ -1,12 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
-// "use client";
+"use client";
 
-import vehicles from "@/vehicles";
+import { useState, useEffect } from "react";
 import styles from "./vehicle.module.scss";
 
 export default function Vehicle({ params }: { params: { id: number } }) {
-  const vehicle = vehicles.find((v) => v.id == params.id);
+  const [vehicle, setVehicle] = useState();
 
+  useEffect(() => {
+    console.log(params);
+    async function fetchVehicles() {
+      const response = await fetch(
+        `http://127.0.0.1:105/vehicles/${params.id}`
+      );
+      const data = await response.json();
+      setVehicle(data);
+    }
+
+    fetchVehicles();
+  }, [params]);
   return (
     <div className={styles.body}>
       <img src={vehicle?.image} alt="car" />
