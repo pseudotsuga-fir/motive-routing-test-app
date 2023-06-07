@@ -1,68 +1,22 @@
-import SRPCard from "../components/SRPCard";
+"use client";
+
+import { useState, useEffect } from "react";
+import SRPCard from "../components/SrpCard";
 import styles from "./home.module.scss";
 
 export default function Home() {
-  const vehicles = [
-    {
-      id: 1,
-      title: "2021 Jeep Wrangled",
-      price: Math.floor(Math.random() * 80000) + 1,
-      image:
-        "https://storage.googleapis.com/wackk-images-development/NonkAxHcPpTAggr1NpczmdVx",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
+  const [vehicles, setVehicles] = useState<{ id: number }[]>([]);
 
-      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
-    },
-    {
-      id: 2,
-      title: "2023 Dodge Challenged",
-      price: Math.floor(Math.random() * 80000) + 1,
-      image:
-        "https://storage.googleapis.com/wackk-images-development/ALG88Z8zTEwt2vYkWiLJTPkN",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
+  useEffect(() => {
+    async function fetchVehicles() {
+      const response = await fetch("http://127.0.0.1:105/vehicles");
+      const data = await response.json();
+      setVehicles(data);
+    }
 
-      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
-    },
-    {
-      id: 3,
-      title: "2004 Ford Out-Of-Focus",
-      price: Math.floor(Math.random() * 80000) + 1,
-      image: "https://pbs.twimg.com/media/EdC32clXoAAvhh9.jpg",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
+    fetchVehicles();
+  }, []);
 
-      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
-    },
-    {
-      id: 4,
-      title: "2023 Nissan Pathfinder",
-      price: Math.floor(Math.random() * 80000) + 1,
-      image:
-        "https://storage.googleapis.com/wackk-images-development/pFXDQzJRGYRNvnKwpoG14Phb",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
-
-      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
-    },
-    {
-      id: 5,
-      title: "2021 Toyota Camry",
-      price: Math.floor(Math.random() * 80000) + 1,
-      image:
-        "https://storage.googleapis.com/wackk-images-development/5JDZYGKUBHUpgpA1PbhvUfMV",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
-
-      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
-    },
-    {
-      id: 6,
-      title: "2007 Toyota Camry",
-      price: Math.floor(Math.random() * 80000) + 1,
-      image:
-        "https://storage.googleapis.com/wackk-images-development/CDw9uXUxRLZYPawZW3vbr3rM",
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo nec ultrices dui sapien eget. Facilisis volutpat est velit egestas. Neque convallis a cras semper auctor neque vitae. Eu augue ut lectus arcu bibendum at varius vel pharetra. Tortor dignissim convallis aenean et tortor. Feugiat in ante metus dictum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Arcu dictum varius duis at consectetur lorem donec massa. Id consectetur purus ut faucibus pulvinar elementum integer enim neque. Magna eget est lorem ipsum dolor sit amet consectetur. Massa sapien faucibus et molestie ac feugiat. Quis hendrerit dolor magna eget est lorem.
-
-      Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Elit ullamcorper dignissim cras tincidunt lobortis. Facilisi morbi tempus iaculis urna. Vitae auctor eu augue ut lectus arcu bibendum at. Faucibus pulvinar elementum integer enim neque volutpat ac. Iaculis nunc sed augue lacus viverra vitae congue. Mattis aliquam faucibus purus in. Varius duis at consectetur lorem donec massa sapien faucibus. Nibh tellus molestie nunc non blandit massa enim nec dui. Facilisi nullam vehicula ipsum a arcu. Tincidunt ornare massa eget egestas purus. Pretium fusce id velit ut tortor. Sit amet nisl purus in.`,
-    },
-  ];
   return (
     <div className={styles.main}>
       {vehicles.map((vehicle) => (

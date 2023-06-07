@@ -1,6 +1,5 @@
 .card {
   width: 400px;
-  height: fit-content;
   background-color: #f6f6f6;
   border-radius: 18px;
   overflow: hidden;
@@ -21,14 +20,19 @@
   margin-bottom: 24px;
  }
 
- p {
+ .price {
   font-weight: 800;
   margin-left: 24px;
   padding: 8px;
-  margin-bottom: 23px;
+  margin-bottom: 24px;
   background-color: #f0f0f0;
   border-radius: 5px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.102);
   width: fit-content;
+ }
+
+ .vin {
+  margin-left: 24px;
+  padding-bottom: 24px;
  }
 }
