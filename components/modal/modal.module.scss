@@ -1,0 +1,22 @@
+.overlay {
+  height: 100%;
+  width: 100%;
+  // height: calc(100vh - 69px);
+  position: fixed;
+  top: 69px;
+  background-color: white;
+  animation: create 0.3s ease-in-out;
+}
+
+@keyframes create {
+  from {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+  }
+}
