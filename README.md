@@ -7,3 +7,10 @@ Run the development server:
 ```bash
 npm run dev
 ```
+
+Run the backend:
+
+```bash
+cd backend
+python3 app.py
+```

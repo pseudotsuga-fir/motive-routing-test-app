@@ -1,7 +1,7 @@
-from flask import Flask, jsonify
-import json
+from flask import Flask, jsonify, request
 import random
 from flask_cors import CORS, cross_origin
+import sys
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -85,6 +85,7 @@ def vehicles():
 @app.route('/vehicles/<id>', methods=['GET'])
 @cross_origin()
 def vehicle(id):
+    print(request.headers, file=sys.stderr)
     return jsonify(get_vehicles()[id])
 
 
