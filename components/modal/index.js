@@ -32,6 +32,13 @@ export default function Modal({ children }) {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [onKeyDown]);
 
+  useEffect(() => {
+    document.body.style.overflowY = "scroll";
+    return () => {
+      document.body.style.overflowY = "auto";
+    };
+  }, []);
+
   return (
     <div
       ref={overlay}

@@ -7,6 +7,6 @@ module.exports = {
     domains: ["pbs.twimg.com"],
   },
   experimental: {
-    appDir: true,
+    scrollRestoration: true,
   },
 };

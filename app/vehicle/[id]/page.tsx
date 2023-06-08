@@ -5,10 +5,14 @@ import { useState, useEffect } from "react";
 import styles from "./vehicle.module.scss";
 
 export default function Vehicle({ params }: { params: { id: number } }) {
-  const [vehicle, setVehicle] = useState();
+  const [vehicle, setVehicle] = useState<{
+    id: number;
+    image: string;
+    title: string;
+    price: string;
+  }>();
 
   useEffect(() => {
-    console.log(params);
     async function fetchVehicles() {
       const response = await fetch(
         `http://127.0.0.1:105/vehicles/${params.id}`
