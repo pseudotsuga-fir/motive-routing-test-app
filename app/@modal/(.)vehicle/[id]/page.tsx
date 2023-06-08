@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
+import { headers } from "next/headers";
 import Modal from "@/components/modal";
 import VehicleDisplay from "@/components/vehicleDisplay/VehicleDisplay";
 
 async function getVehicles(id: number) {
   const res = await fetch(`http://127.0.0.1:105/vehicles/${id}`, {
     headers: {
-      Origin: "https://ridemotive.com",
+      Origin: `https://${headers().get("host")}`,
     },
   });
 
